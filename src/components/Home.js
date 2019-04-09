@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class App extends Component {
+	state = {
+		amount: 0,
+		months: 0,
+		interestRate: 0,
+		monthlyPayment: 0,
+		numPayments: 0
+	};
+
 	// componentDidMount() {
 	// 	axios
 	// 		.get(
@@ -9,23 +17,50 @@ class App extends Component {
 	// 				this.state.amount
 	// 			}&numMonths=${this.state.months}`
 	// 		)
-	// 		.then(res => console.log(res.data))
+	// 		.then(res => {
+	// 			this.setState({
+	// 				interestRate: res.data.interestRate,
+	// 				monthlyPayment: res.data.monthlyPayment.amount,
+	// 				numPayments: res.data.numPayments
+	// 			});
+	// 		})
 	// 		.catch(e => console.log(e));
+	// 	console.log(this.state);
 	// }
-	componentDidUpdate() {
-		axios
-			.get(
-				`https://ftl-frontend-test.herokuapp.com/interest?amount=${
-					this.state.amount
-				}&numMonths=${this.state.months}`
-			)
-			.then(res => console.log(res.data))
-			.catch(e => console.log(e));
+
+	componentDidUpdate(prevProps, prevState) {
+		if (
+			this.state.amount !== prevState.amount ||
+			this.state.months !== prevState.months
+		) {
+			axios
+				.get(
+					`https://ftl-frontend-test.herokuapp.com/interest?amount=${
+						this.state.amount
+					}&numMonths=${this.state.months}`
+				)
+				.then(res => {
+					console.log(res.data);
+					if (res.data.status && res.data.status === "error") {
+						// Show error to user
+					} else {
+						this.setState({
+							interestRate: res.data.interestRate,
+							monthlyPayment: res.data.monthlyPayment.amount,
+							numPayments: res.data.numPayments
+						});
+					}
+				})
+				.catch(e => console.log(e));
+		}
 	}
-	state = {
-		amount: 0,
-		months: 0
-	};
+
+	// componentDidUpdate(prevProps, prevState) {
+	// 	if (!prevState.length) {
+	// 		this.setState({ projects: this.state.projects });
+	// 	}
+	// }
+
 	handleSubmit = e => {
 		e.preventDefault();
 		console.log(this.state);
@@ -43,23 +78,23 @@ class App extends Component {
 						</div>
 					)}*/}
 					<div className="form-group">
-						<label>Amount</label>
+						<label>Loan Amount</label>
 						<input
 							type="number"
 							name="amount"
 							onChange={this.onChange}
 							className={`form-control`}
-							placeholder="Enter amount"
+							placeholder="Enter loan amount"
 						/>
 					</div>
 					<div className="form-group">
-						<label>Number of months</label>
+						<label>Loan Duration (in months)</label>
 						<input
 							type="number"
 							name="months"
 							onChange={this.onChange}
 							className={`form-control`}
-							placeholder="Enter no. of months"
+							placeholder="Enter loan duration in months"
 						/>
 					</div>
 					<button type="submit" className="btn btn-success w-100">
@@ -68,12 +103,15 @@ class App extends Component {
 				</form>
 				<hr />
 				<div className="subscriber-wrapper">
-					<h2>Subscriber to be added</h2>
+					<h2>Interest Details: </h2>
 					<p>
-						<b>Name:</b> {this.state.name}
+						<b>Interest Rate:</b> {this.state.interestRate}
 					</p>
 					<p>
-						<b>Phone:</b> {this.state.phone}
+						<b>Monthly Payment:</b> {this.state.monthlyPayment}
+					</p>
+					<p>
+						<b>Number of Payments:</b> {this.state.numPayments}
 					</p>
 				</div>
 			</div>
