@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import InputRange from "react-input-range";
+import "react-input-range/lib/css/index.css";
 
 class App extends Component {
 	state = {
-		amount: 0,
+		amount: 500,
+		// amount: { min: 2, max: 10 },
 		months: 0,
 		interestRate: 0,
 		monthlyPayment: 0,
@@ -85,6 +88,14 @@ class App extends Component {
 							onChange={this.onChange}
 							className={`form-control`}
 							placeholder="Enter loan amount"
+						/>
+					</div>
+					<div className="form-group">
+						<InputRange
+							maxValue={5000}
+							minValue={500}
+							value={this.state.amount}
+							onChange={amount => this.setState({ amount })}
 						/>
 					</div>
 					<div className="form-group">
