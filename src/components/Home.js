@@ -6,30 +6,29 @@ import "react-input-range/lib/css/index.css";
 class App extends Component {
 	state = {
 		amount: 500,
-		// amount: { min: 2, max: 10 },
-		months: 0,
+		months: 6,
 		interestRate: 0,
 		monthlyPayment: 0,
 		numPayments: 0
 	};
 
-	// componentDidMount() {
-	// 	axios
-	// 		.get(
-	// 			`https://ftl-frontend-test.herokuapp.com/interest?amount=${
-	// 				this.state.amount
-	// 			}&numMonths=${this.state.months}`
-	// 		)
-	// 		.then(res => {
-	// 			this.setState({
-	// 				interestRate: res.data.interestRate,
-	// 				monthlyPayment: res.data.monthlyPayment.amount,
-	// 				numPayments: res.data.numPayments
-	// 			});
-	// 		})
-	// 		.catch(e => console.log(e));
-	// 	console.log(this.state);
-	// }
+	componentDidMount() {
+		axios
+			.get(
+				`https://ftl-frontend-test.herokuapp.com/interest?amount=${
+					this.state.amount
+				}&numMonths=${this.state.months}`
+			)
+			.then(res => {
+				this.setState({
+					interestRate: res.data.interestRate,
+					monthlyPayment: res.data.monthlyPayment.amount,
+					numPayments: res.data.numPayments
+				});
+			})
+			.catch(e => console.log(e));
+		console.log(this.state);
+	}
 
 	componentDidUpdate(prevProps, prevState) {
 		if (
@@ -58,16 +57,6 @@ class App extends Component {
 		}
 	}
 
-	// componentDidUpdate(prevProps, prevState) {
-	// 	if (!prevState.length) {
-	// 		this.setState({ projects: this.state.projects });
-	// 	}
-	// }
-
-	handleSubmit = e => {
-		e.preventDefault();
-		console.log(this.state);
-	};
 	onChange = e => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
@@ -80,7 +69,7 @@ class App extends Component {
 							{this.state.error}
 						</div>
 					)}*/}
-					<div className="form-group">
+					{/*<div className="form-group">
 						<label>Loan Amount</label>
 						<input
 							type="number"
@@ -89,8 +78,9 @@ class App extends Component {
 							className={`form-control`}
 							placeholder="Enter loan amount"
 						/>
-					</div>
+					</div>*/}
 					<div className="form-group">
+						<label>Loan Amount</label>
 						<InputRange
 							maxValue={5000}
 							minValue={500}
@@ -100,6 +90,15 @@ class App extends Component {
 					</div>
 					<div className="form-group">
 						<label>Loan Duration (in months)</label>
+						<InputRange
+							maxValue={24}
+							minValue={6}
+							value={this.state.months}
+							onChange={months => this.setState({ months })}
+						/>
+					</div>
+					{/*<div className="form-group">
+						<label>Loan Duration (in months)</label>
 						<input
 							type="number"
 							name="months"
@@ -107,10 +106,7 @@ class App extends Component {
 							className={`form-control`}
 							placeholder="Enter loan duration in months"
 						/>
-					</div>
-					<button type="submit" className="btn btn-success w-100">
-						ADD
-					</button>
+					</div>*/}
 				</form>
 				<hr />
 				<div className="subscriber-wrapper">
