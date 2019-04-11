@@ -107,7 +107,6 @@ class App extends Component {
 						/>
 					</div>*/}
 				</form>
-				<hr />
 				<div className="subscriber-wrapper">
 					<h2>Interest Details: </h2>
 					<p>
