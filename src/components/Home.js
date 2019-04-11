@@ -3,6 +3,8 @@ import axios from "axios";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 
+import "./Home.css";
+
 class App extends Component {
 	state = {
 		amount: 500,
@@ -57,13 +59,10 @@ class App extends Component {
 		}
 	}
 
-	onChange = e => {
-		this.setState({ [e.target.name]: e.target.value });
-	};
 	render() {
 		return (
 			<div className="container w-100">
-				<form onSubmit={this.handleSubmit}>
+				<form>
 					{/*this.state.error && (
 						<div className="alert alert-danger" role="alert">
 							{this.state.error}
@@ -80,7 +79,7 @@ class App extends Component {
 						/>
 					</div>*/}
 					<div className="form-group">
-						<label>Loan Amount</label>
+						<label>Loan Amount (in $)</label>
 						<InputRange
 							maxValue={5000}
 							minValue={500}
@@ -112,10 +111,10 @@ class App extends Component {
 				<div className="subscriber-wrapper">
 					<h2>Interest Details: </h2>
 					<p>
-						<b>Interest Rate:</b> {this.state.interestRate}
+						<b>Interest Rate:</b> ${this.state.interestRate}
 					</p>
 					<p>
-						<b>Monthly Payment:</b> {this.state.monthlyPayment}
+						<b>Monthly Payment:</b> ${this.state.monthlyPayment}
 					</p>
 					<p>
 						<b>Number of Payments:</b> {this.state.numPayments}
