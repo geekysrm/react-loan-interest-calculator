@@ -48,7 +48,6 @@ label {
 .card {
 	padding: 50px;
 	background: #fff;
-	/*box-shadow: 0px 5px 50px #f7f7f7;*/
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -61,9 +60,4 @@ a:hover {
 	color: #c0b1b1;
 	text-decoration: none;
 	cursor: pointer;
-}
-
-/*Remove below*/
-.jumbotron {
-	display: none;
 }
