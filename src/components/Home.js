@@ -82,7 +82,7 @@ class App extends Component {
 					</p>
 				</div>
 
-				<div className="container w-100">
+				<div className="container w-100 card">
 					<form>
 						<div className="form-group">
 							<label>Loan Amount</label>
