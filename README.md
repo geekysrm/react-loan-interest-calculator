@@ -13,7 +13,7 @@ A loan interest calculator made with React.
   further interaction by the user.
 - The loan amount should be between 500 and 5000 \$ and the loan duration between 6
   and 24 months.
-- The following API is used - `https://ftl-frontend-test.herokuapp.com/interest?amount=<amount>&numMonths=<numMonths>`
+- The following API is used - `https://ftl-frontend-test.herokuapp.com/interest?amount=<amount>&numMonths=<numMonths>`<br/>
   This returns a JSON object with information about the monthly payment and the interest
   rates.
 
