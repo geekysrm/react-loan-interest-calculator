@@ -1,10 +1,24 @@
 label {
-	margin-bottom: 18px;
-	font-size: 1.25rem;
+	margin-bottom: 32px;
+	font-size: 1.5rem;
+}
+
+.input-range {
+	margin: 2px 15px;
 }
 
 .input-range__label-container {
 	color: #212529;
+	font-size: 16px;
+}
+
+.input-range__label--min,
+.input-range__label--max {
+	top: 25px !important;
+}
+
+.input-range__label--value {
+	top: -33px;
 }
 
 .interest-data {
@@ -60,4 +74,12 @@ a:hover {
 	color: #c0b1b1;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+/*Media queries for smaller devices*/
+
+@media only screen and (max-width: 600px) {
+	.mb-5 {
+		margin-bottom: 2rem !important;
+	}
 }
