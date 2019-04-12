@@ -106,14 +106,23 @@ class App extends Component {
 					<br />
 					<div className="interest-details-wrapper">
 						<h2>Interest Details: </h2>
-						<p>
-							<b>Interest Rate:</b> ${this.state.interestRate}
+						<p className="interest-data">
+							<span className="interest-label">Interest Rate: </span>
+							<span className="interest-display test">
+								${this.state.interestRate}
+							</span>
 						</p>
-						<p>
-							<b>Monthly Payment:</b> ${this.state.monthlyPayment}
+						<p className="interest-data">
+							<span className="interest-label">Monthly Payment:</span>{" "}
+							<span className="payment-display test">
+								${this.state.monthlyPayment}
+							</span>
 						</p>
-						<p>
-							<b>Number of Payments:</b> {this.state.numPayments}
+						<p className="interest-data">
+							<span className="interest-label">Number of Payments:</span>{" "}
+							<span className="number-display test">
+								{this.state.numPayments}
+							</span>
 						</p>
 					</div>
 				</div>
