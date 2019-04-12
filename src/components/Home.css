@@ -1,3 +1,16 @@
 label {
-	margin-bottom: 15px;
+	margin-bottom: 18px;
+	font-size: 1.25rem;
+}
+
+.input-range__label-container {
+	color: #212529;
+}
+
+.form-group {
+	margin-bottom: 2rem;
+}
+/*Remove below*/
+.jumbotron {
+	display: none;
 }
