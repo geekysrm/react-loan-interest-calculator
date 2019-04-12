@@ -34,8 +34,25 @@ label {
 	font-size: 1.75rem;
 }
 
-.test {
+.data-display {
 	color: #2881d9;
+}
+
+.footer {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #c0b1b1;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 /*Remove below*/

@@ -4,6 +4,7 @@ import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 import "./Home.css";
 
 class App extends Component {
@@ -108,24 +109,25 @@ class App extends Component {
 						<h2>Interest Details: </h2>
 						<p className="interest-data">
 							<span className="interest-label">Interest Rate: </span>
-							<span className="interest-display test">
+							<span className="interest-display data-display">
 								${this.state.interestRate}
 							</span>
 						</p>
 						<p className="interest-data">
 							<span className="interest-label">Monthly Payment:</span>{" "}
-							<span className="payment-display test">
+							<span className="payment-display data-display">
 								${this.state.monthlyPayment}
 							</span>
 						</p>
 						<p className="interest-data">
 							<span className="interest-label">Number of Payments:</span>{" "}
-							<span className="number-display test">
+							<span className="number-display data-display">
 								{this.state.numPayments}
 							</span>
 						</p>
 					</div>
 				</div>
+				<Footer />
 			</>
 		);
 	}
