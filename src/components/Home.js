@@ -9,8 +9,8 @@ import "./Home.css";
 
 class App extends Component {
 	state = {
-		amount: 500,
-		months: 6,
+		amount: 0,
+		months: 0,
 		interestRate: 0,
 		monthlyPayment: 0,
 		numPayments: 0
